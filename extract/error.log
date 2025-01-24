@@ -1,0 +1,579 @@
+data\nlpxinlixue\nlpxinlixue1001.txt
+data\nlpxinlixue\nlpxinlixue1002.txt
+data\nlpxinlixue\nlpxinlixue1003.txt
+data\nlpxinlixue\nlpxinlixue1004.txt
+data\nlpxinlixue\nlpxinlixue1005.txt
+data\nlpxinlixue\nlpxinlixue1006.txt
+data\nlpxinlixue\nlpxinlixue1007.txt
+data\nlpxinlixue\nlpxinlixue1008.txt
+data\nlpxinlixue\nlpxinlixue1009.txt
+data\nlpxinlixue\nlpxinlixue101.txt
+data\nlpxinlixue\nlpxinlixue1010.txt
+data\nlpxinlixue\nlpxinlixue1011.txt
+data\nlpxinlixue\nlpxinlixue1012.txt
+data\nlpxinlixue\nlpxinlixue1013.txt
+data\nlpxinlixue\nlpxinlixue1014.txt
+data\nlpxinlixue\nlpxinlixue1015.txt
+data\nlpxinlixue\nlpxinlixue1016.txt
+data\nlpxinlixue\nlpxinlixue1017.txt
+data\nlpxinlixue\nlpxinlixue1018.txt
+data\nlpxinlixue\nlpxinlixue1019.txt
+data\nlpxinlixue\nlpxinlixue102.txt
+data\nlpxinlixue\nlpxinlixue1020.txt
+data\nlpxinlixue\nlpxinlixue1021.txt
+data\nlpxinlixue\nlpxinlixue1022.txt
+data\nlpxinlixue\nlpxinlixue1023.txt
+data\nlpxinlixue\nlpxinlixue1024.txt
+data\nlpxinlixue\nlpxinlixue1025.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:专业 {name: $name1})MERGE(b:文件 {name: $name2})MERGE (a)-[r:在...方面具有优势]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:专业 {name: $name1})MERGE(b:文件 {name: $name2})MERGE (a)-[r:在...方面具有优势]->(b)RETURN r"
+                                                                    ^}
+
+data\nlpxinlixue\nlpxinlixue1026.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:模型 {name: $name1})MERGE(b:作者 {name: $name2})MERGE (a)-[r:由...提出]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:模型 {name: $name1})MERGE(b:作者 {name: $name2})MERGE (a)-[r:由...提出]->(b)RETURN r"
+                                                                    ^}
+
+data\nlpxinlixue\nlpxinlixue1027.txt
+data\nlpxinlixue\nlpxinlixue1028.txt
+data\nlpxinlixue\nlpxinlixue1029.txt
+data\nlpxinlixue\nlpxinlixue103.txt
+data\nlpxinlixue\nlpxinlixue1030.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 115, in build
+    result = await extract(text)
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 51, in extract
+    return json.loads(match.group(1).lstrip("```json").rstrip("```"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 11 column 5 (char 311)
+
+[{'role': 'assistant', 'content': '```json\n{\n  "entities": [\n    {\n      "type": "书籍",\n      "name": "《语言的魔力》"\n    },\n    {\n      "type": "作者",\n      "name": "迪尔茨"\n    },\n    {\n      "type": "概念",\n      "name": "信念"\n    },\n    {\n      "type": "过程",\n      "name": "想要相信"\n    },\n    {\n      "type": "过程",\n      "name": "开始接受"\n    },\n    {\n      "type": "过程",\n      "name": "当下相信"\n    },\n    {\n      "type": "过程",\n      "name": "开始质疑"\n    },\n    {\n      "type": "过程",\n      "name": "曾经相信"\n    },\n    {\n      "type": "过程",\n      "name": "信赖"\n    },\n    {\n      "type": "方法",\n      "name": "回应术"\n    },\n    {\n      "type": "技能",\n      "name": "提问"\n    },\n    {\n      "type": "技能",\n      "name": "重构"\n    },\n    {\n      "type": "技能",\n      "name": "引导"\n    },\n    {\n      "type": "情感",\n      "name": "害怕 публичных выступлений "\n    },\n    {\n      "type": "现象",\n      "name": "不被认可的恐惧"\n    },\n    {\n      "type": "现象",\n      "name": "渴望与他人建立连接，分享自己的想法和感受"\n    }\n  ],\n  "relations": [\n    {\n      "entity1": {\n        "type": "书籍",\n        "name": "《语言的魔力》"\n      },\n      "relation": "作者是",\n      "entity2": {\n        "type": "作者",\n        "name": "迪尔茨"\n      }\n    },\n    {\n      "entity1": {\n        "type": "书籍",\n        "name": "《语言的魔力》"\n      },\n      "relation": "包含概念",\n      "entity2": {\n        "type": "概念",\n        "name": "信念"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "想要相信"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "开始接受"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "当下相信"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "开始质疑"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "曾经相信"\n      }\n    },\n    {\n      "entity1": {\n        "type": "概念",\n        "name": "信念"\n      },\n      "relation": "经历阶段",\n      "entity2": {\n        "type": "过程",\n        "name": "信赖"\n      }\n    },\n    {\n      "entity1": {\n        "type": "书籍",\n        "name": "《语言的魔力》"\n      },\n      "relation": "介绍方法",\n      "entity2": {\n        "type": "方法",\n        "name": "回应术"\n      }\n    },\n    {\n      "entity1": {\n        "type": "方法",\n        "name": "回应术"\n      },\n      "relation": "包括技能",\n      "entity2": {\n        "type": "技能",\n        "name": "提问"\n      }\n    },\n    {\n      "entity1": {\n        "type": "方法",\n        "name": "回应术"\n      },\n      "relation": "包括技能",\n      "entity2": {\n        "type": "技能",\n        "name": "重构"\n      }\n    },\n    {\n      "entity1": {\n        "type": "方法",\n        "name": "回应术"\n      },\n      "relation": "包括技能",\n      "entity2": {\n        "type": "技能",\n        "name": "引导"\n      }\n    },\n    {\n      "entity1": {\n        "type": "书籍",\n        "name": "《语言的魔力》"\n      },\n      "relation": "讨论情感",\n      "entity2": {\n        "type": "情感",\n        "name": "害怕 публичных выступлений "\n      }\n    },\n    {\n      "entity1": {\n        "type": "情感",\n        "name": "害怕 публичных выступлений "\n      },\n      "relation": "根源于",\n      "entity2": {\n        "type": "现象",\n        "name": "不被认可的恐惧"\n      }\n    },\n    {\n      "entity1": {\n        "type": "现象",\n        "name": "不被认可的恐惧"\n      },\n      "relation": "被定义为",\n      "entity2": {\n        "type": "现象",\n        "name": "渴望与他人建立连接，分享自己的想法和感受"\n      }\n    }\n  ]\n}\n```'}, {'role': 'user', 'content': '帮我进行实体识别和关系提取,以下是实体类型[\'书籍\', \'作者\', \'概念\', \'案例研究\', \'统计数据\', \'家庭场景\', \'社会实验\', \'方法\', \'示例\', \'事件\', \'哲学\', \'变化\', \'过程\', \'行业\', \'趋势\', \'工作\', \'组织\', \'日期\', \'证书\', \'人物\', \'网站\', \'学科\', \'活动\', \'文件\', \'原则\', \'启示\', \'灵感\', \'洞察\', \'方法论\', \'目标\', \'结果\', \'领域\', \'政策\', \'评估\', \'结论\', \'指南\', \'科学\', \'智慧\', \'情感\', \'条件\', \'技术\', \'研究者\', \'公司\', \'产品\', \'策略\', \'报告\', \'奖项\', \'年份\', \'主题\', \'理论\', \'组成部分\', \'应用\', \'工具\', \'国家\', \'学术学科\', \'学术学位\', \'专业\', \'代码\', \'计划招生人数\', \'免试学生人数\', \'计划面试人数\', \'时间\', \'校园\', \'建筑\', \'测试\', \'分数\', \'联系人\', \'电话\', \'邮箱\', \'职业\', \'教育水平\', \'资格证书\', \'部门\', \'职业发展路径\', \'资格\', \'模型\', \'角色\', \'管理思想家\', \'视频标题\', \'问题\', \'研究领域\', \'受众\', \'现象\', \'环境\', \'反馈\', \'电影类型\', \'心理状态\', \'心理概念\', \'虚构元素\', \'人员\', \'情感支持\', \'关系\', \'娱乐\', \'游戏\', \'注意力转移\', \'音乐\', \'体育活动\', \'放松技巧\', \'练习\', \'呼吸技巧\', \'身体放松\', \'意图\', \'批评示例\', \'意图示例\', \'技能\', \'角色转变\', \'视角变化\', \'机会\', \'重新定义示例\', \'责任\', \'变革动力\', \'旅程\', \'隐喻\', \'人物示例\', \'信念示例\', \'转型\', \'非语言暗示\', \'研究\', \'引用\', \'心理现象\', \'社会角色\', \'实验\', \'专业术语\', \'行动\', \'考试\', \'学科领域\', \'报名条件\', \'报名方式\', \'考试科目\', \'学习策略\', \'证书类型\', \'考试条件\', \'组织\', \'地点\', \'课程\', \'疾病\', \'测试类型\', \'测试组成部分\', \'评估内容\', \'倾向\', \'主题\', \'能力\', \'系统\'],以下是文本:权威心理的奥秘之让人言听计从的秘密《沟通心理学》\n沟通心理学读书笔记：以权威之名，引领他人\n权威心理的力量\n人类社会中,权威无疑是一种强大的影响力。我们常会被所谓的"专家"或"权威"的言论所说服,即使他们的观点并非完全正确。这种现象被心理学家们称为"权威心理"。\n权威的魅力\n在上述实验中,尽管那位"化学家"只是一位德语教师,但凭借他的"权威"身份,却成功地让多数学生相信蒸馏水有气味。这说明,人们普遍存在一种"安全心理",即倾向于相信权威人士的观点。我们总是希望能够依赖专家的判断,因为这样可以减轻自己的决策压力,从而获得一种心理上的安全感。\n权威的影响力\n权威的影响力不仅体现在言语上,还体现在行为上。比如,当一位医生开具处方时,我们通常会毫不质疑地服用药物;当一位警官下令时,我们也会立即服从。这是因为,我们普遍认为权威人士的言行都是正确的,他们的判断和决定都是值得信赖的。\n如何运用权威心理\n既然权威心理如此强大,那么我们如何运用它来达成自己的目标呢?\n1. 展现专业形象\n要想让他人相信你的观点,首先需要让对方认为你是一个专业、可靠的人。这可以通过展现专业知识和丰富经验来实现。比如,在与客户沟通时,可以适当引用一些专业术语或数据,以此来增强自己的权威感。\n2. 借助第三方背书\n有时,单凭自己的力量可能难以说服他人。这时,可以寻求其他权威人士的背书。比如,在推销产品时,可以引用行业内知名专家的评价,或者提及产品获得的各种荣誉。这样不仅可以提升产品的形象,也能让客户对你的话产生更多信任。\n3. 巧用心理暗示\n有时,即使你并非真正的专家,也可以通过一些心理暗示来增强自己的权威感。比如,在与他人交谈时,可以适当使用一些专业术语,或者提及一些你所谓的"内部消息"。这样做可以让对方产生你掌握了更多信息的错觉,从而更容易接受你的观点。\n总之,权威心理是一种强大的影响力,我们应该学会运用它来达成自己的目的。无论是展现专业形象、借助第三方背书,还是巧用心理暗示,只要掌握得当,就能让他人更容易接受你的观点,从而实现双赢。🤩\n\n。生成一个json文件，要求有且只有一个json代码块，每个实体的模式为{"type":TYPE,"name":NAME}, type必须包含于给定的实体类型，每个关系的模式为{"entity1":{"type":type1,"name":name1},"relation":RELATION,"entity2":{"type":type2, "name":name2}},其中entity1和entity2必须包含于实体识别的结果。提取json文件格式要求{"entities":[{"type":type1,"name":name1},{"type":type2,"name":name2}...],"relations":[{"entity1":{"type":type1, "name":name1},"relation":RELATION,"entity2":{"type":type2, "name":name2}}...]}'}, {'role': 'assistant', 'content': '```json\n{\n    "entities": [\n        {"type": "书籍", "name": "《沟通心理学》"},\n        {"type": "社会角色", "name": "化学家"},\n        {"type": "社会角色", "name": "医生"},\n        {"type": "社会角色", "name": "警官"},\n        {"type": "专业", "name": "客户沟通"},\n        {"type": "专业术语", "name": "内部消息"},\n        {"type": "现象", "name": "权威心理"},\n    ],\n    "relations": [\n        {"entity1": {"type": "书籍", "name": "《沟通心理学》"}, "relation": "读书笔记", "entity2": {"type": "书籍", "name": "《沟通心理学》"}},\n        {"entity1": {"type": "书籍", "name": "《沟通心理学》"}, "relation": "介绍", "entity2": {"type": "社会角色", "name": "化学家"}},\n        {"entity1": {"type": "现象", "name": "权威心理"}, "relation": "体现", "entity2": {"type": "社会角色", "name": "化学家"}},\n        {"entity1": {"type": "现象", "name": "权威心理"}, "relation": "体现", "entity2": {"type": "社会角色", "name": "医生"}},\n        {"entity1": {"type": "现象", "name": "权威心理"}, "relation": "体现", "entity2": {"type": "社会角色", "name": "警官"}},\n        {"entity1": {"type": "社会角色", "name": "化学家"}, "relation": "身份是", "entity2": {"type": "专业术语", "name": "德语教师"}},\n        {"entity1": {"type": "专业术语", "name": "处方"}, "relation": "开具", "entity2": {"type": "社会角色", "name": "医生"}},\n        {"entity1": {"type": "专业术语", "name": "处方"}, "relation": "服用", "entity2": {"type": "社会角色", "name": "我们"}},\n        {"entity1": {"type": "专业术语", "name": "命令"}, "relation": "下达", "entity2": {"type": "社会角色", "name": "警官"}},\n        {"entity1": {"type": "社会角色", "name": "我们"}, "relation": "服从", "entity2": {"type": "专业术语", "name": "命令"}},\n        {"entity1": {"type": "方法", "name": "展现专业形象"}, "relation": "运用", "entity2": {"type": "书籍", "name": "《沟通心理学》"}},\n        {"entity1": {"type": "方法", "name": "借助第三方背书"}, "relation": "运用", "entity2": {"type": "书籍", "name": "《沟通心理学》"}},\n        {"entity1": {"type": "方法", "name": "巧用心理暗示"}, "relation": "运用", "entity2": {"type": "书籍", "name": "《沟通心理学》"}},\n    ]\n}\n```'}]
+data\nlpxinlixue\nlpxinlixue1031.txt
+data\nlpxinlixue\nlpxinlixue1032.txt
+data\nlpxinlixue\nlpxinlixue1033.txt
+data\nlpxinlixue\nlpxinlixue1034.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:书籍 {name: $name1})MERGE(b:作者 {name: $name2})MERGE (a)-[r:由...撰写]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:书籍 {name: $name1})MERGE(b:作者 {name: $name2})MERGE (a)-[r:由...撰写]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:人物 {name: $name1})MERGE(b:人物 {name: $name2})MERGE (a)-[r:在...引导下释放内心的积怨]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:人物 {name: $name1})MERGE(b:人物 {name: $name2})MERGE (a)-[r:在...引导下释放内心的积怨]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 69 (offset: 68))
+"MERGE (a:人物 {name: $name1})MERGE(b:组织 {name: $name2})MERGE (a)-[r:前往...进修]->(b)RETURN r"
+                                                                     ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 69 (offset: 68))
+"MERGE (a:人物 {name: $name1})MERGE(b:组织 {name: $name2})MERGE (a)-[r:前往...进修]->(b)RETURN r"
+                                                                     ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 69 (offset: 68))
+"MERGE (a:人物 {name: $name1})MERGE(b:课程 {name: $name2})MERGE (a)-[r:通过...学会了更有效地管理情绪]->(b)RETURN r"
+                                                                     ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 69 (offset: 68))
+"MERGE (a:人物 {name: $name1})MERGE(b:课程 {name: $name2})MERGE (a)-[r:通过...学会了更有效地管理情绪]->(b)RETURN r"
+                                                                     ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 72 (offset: 71))
+"MERGE (a:书籍 {name: $name1})MERGE(b:技能 {name: $name2})MERGE (a)-[r:提供了关于...的指导和启发]->(b)RETURN r"
+                                                                        ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 72 (offset: 71))
+"MERGE (a:书籍 {name: $name1})MERGE(b:技能 {name: $name2})MERGE (a)-[r:提供了关于...的指导和启发]->(b)RETURN r"
+                                                                        ^}
+
+data\nlpxinlixue\nlpxinlixue1035.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 115, in build
+    result = await extract(text)
+             ^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 51, in extract
+    return json.loads(match.group(1).lstrip("```json").rstrip("```"))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 27 column 3 (char 860)
+
+[{'role': 'assistant', 'content': '```json\n{\n  "entities": [\n    {"type": "书籍", "name": "重塑心灵"},\n    {"type": "作者", "name": "徐志忠"},\n    {"type": "作者", "name": "朱迪·德罗齐耶"},\n    {"type": "组织", "name": "九龙华仁书院"},\n    {"type": "组织", "name": "美国NLP学院"},\n    {"type": "课程", "name": "NLP主题工作坊"},\n    {"type": "证书", "name": "NLP专业执行师的普通文凭"},\n    {"type": "证书", "name": "培训师技巧文凭课程"},\n    {"type": "地点", "name": "马来西亚"},\n    {"type": "地点", "name": "中国香港"},\n    {"type": "地点", "name": "北京"},\n    {"type": "地点", "name": "南京"},\n    {"type": "地点", "name": "上海"},\n    {"type": "地点", "name": "广州"},\n    {"type": "地点", "name": "杭州"},\n    {"type": "地点", "name": "大连"}\n  ],\n  "relations": [\n    {\n      "entity1": {"type": "书籍", "name": "重塑心灵"},\n      "relation": "由...撰写",\n      "entity2": {"type": "作者", "name": "徐志忠"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "一位四十多岁的外籍男子"},\n      "relation": "在...引导下释放内心的积怨",\n      "entity2": {"type": "人物", "name": "朱迪·德罗齐耶"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "我"},\n      "relation": "参加",\n      "entity2": {"type": "课程", "name": "徐志忠老师的NLP主题工作坊"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "我"},\n      "relation": "前往...进修",\n      "entity2": {"type": "组织", "name": "美国NLP学院"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "我"},\n      "relation": "参与教授NLP的工作",\n      "entity2": {"type": "课程", "name": "NLP"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "我"},\n      "relation": "接手了推广NLP的任务",\n      "entity2": {"type": "课程", "name": "NLP专业执行师文凭课程"}\n    },\n    {\n      "entity1": {"type": "人物", "name": "无数学员"},\n      "relation": "通过...学会了更有效地管理情绪",\n      "entity2": {"type": "课程", "name": "NLP系列课程"}\n    },\n    {\n      "entity1": {"type": "概念", "name": "NLP"},\n      "relation": "应用于",\n      "entity2": {"type": "领域", "name": "个人成长、家庭关系、职业发展"}\n    },\n    {\n      "entity1": {"type": "书籍", "name": "重塑心灵"},\n      "relation": "提供了关于...的指导和启发",\n      "entity2": {"type": "技能", "name": "NLP学习"}\n    }\n  ]\n}\n```'}, {'role': 'user', 'content': '帮我进行实体识别和关系提取,以下是实体类型[\'书籍\', \'作者\', \'概念\', \'案例研究\', \'统计数据\', \'家庭场景\', \'社会实验\', \'方法\', \'示例\', \'事件\', \'哲学\', \'变化\', \'过程\', \'行业\', \'趋势\', \'工作\', \'组织\', \'日期\', \'证书\', \'人物\', \'网站\', \'学科\', \'活动\', \'文件\', \'原则\', \'启示\', \'灵感\', \'洞察\', \'方法论\', \'目标\', \'结果\', \'领域\', \'政策\', \'评估\', \'结论\', \'指南\', \'科学\', \'智慧\', \'情感\', \'条件\', \'技术\', \'研究者\', \'公司\', \'产品\', \'策略\', \'报告\', \'奖项\', \'年份\', \'主题\', \'理论\', \'组成部分\', \'应用\', \'工具\', \'国家\', \'学术学科\', \'学术学位\', \'专业\', \'代码\', \'计划招生人数\', \'免试学生人数\', \'计划面试人数\', \'时间\', \'校园\', \'建筑\', \'测试\', \'分数\', \'联系人\', \'电话\', \'邮箱\', \'职业\', \'教育水平\', \'资格证书\', \'部门\', \'职业发展路径\', \'资格\', \'模型\', \'角色\', \'管理思想家\', \'视频标题\', \'问题\', \'研究领域\', \'受众\', \'现象\', \'环境\', \'反馈\', \'电影类型\', \'心理状态\', \'心理概念\', \'虚构元素\', \'人员\', \'情感支持\', \'关系\', \'娱乐\', \'游戏\', \'注意力转移\', \'音乐\', \'体育活动\', \'放松技巧\', \'练习\', \'呼吸技巧\', \'身体放松\', \'意图\', \'批评示例\', \'意图示例\', \'技能\', \'角色转变\', \'视角变化\', \'机会\', \'重新定义示例\', \'责任\', \'变革动力\', \'旅程\', \'隐喻\', \'人物示例\', \'信念示例\', \'转型\', \'非语言暗示\', \'研究\', \'引用\', \'心理现象\', \'社会角色\', \'实验\', \'专业术语\', \'行动\', \'考试\', \'学科领域\', \'报名条件\', \'报名方式\', \'考试科目\', \'学习策略\', \'证书类型\', \'考试条件\', \'组织\', \'地点\', \'课程\', \'疾病\', \'测试类型\', \'测试组成部分\', \'评估内容\', \'倾向\', \'主题\', \'能力\', \'系统\'],以下是文本:神经心理学评估之揭开大脑与行为的秘密\n神经心理学评估的艺术与科学\n神经心理学评估，这一领域如同一幅精致的画卷，描绘着大脑与行为之间的微妙关系。它不仅是科学的探究，更是一门艺术，通过精确的测量和细致的观察，揭示出隐藏在神经网络中的奥秘。让我们一起踏上这段探索之旅，深入了解神经心理学评估的方面。\n神经心理学评估的目的与意义\n神经心理学评估的首要目的是识别功能性障碍与器质性障碍，确定大脑损伤的部位和性质，以及评估认知功能障碍的程度。这一过程如同一位经验丰富的侦探，通过一系列精心设计的测验，逐步揭开大脑功能的面纱。评估结果不仅帮助临床医生准确诊断，还为制定个性化的康复计划提供了宝贵的信息。\n在临床实践中，神经心理学评估被广泛应用于各种神经系统疾病的诊断和治疗。例如，脑卒中、脑外伤、阿尔茨海默病等患者，通过神经心理学评估，可以明确认知功能受损的具体表现，从而制定针对性的康复训练方案。此外，评估还在精神疾病的诊断中发挥重要作用，如抑郁症、焦虑症等，通过评估可以了解患者的认知功能状态，辅助治疗决策。\n神经心理学评估的测验类型\n神经心理学评估的测验类型多种多样，主要分为单个测验和成套测验两类。单个测验通常关注特定的心理变化，例如记忆力、注意力、语言能力等。而成套测验则进行综合评估，涵盖多个认知功能领域，提供全面的神经心理学画像。\n常用的神经心理测验包括H-R神经心理成套测验（HRB），其中包含范畴测验、触摸操作测验、节律测验等。这些测验通过不同的任务设计，评估大脑的各个功能区域。例如，范畴测验主要评估抽象思维和概念形成能力；触摸操作测验则考察触觉和空间感知能力；节律测验则关注时间感知和运动协调能力。\n神经心理学评估的内容与方法\n神经心理学评估的内容涉及感觉、知觉、运动、言语、注意、记忆和思维等多个方面，反映大脑功能的全面状态。评估过程中，专家会根据患者的具体情况，选择合适的测验工具和方法，确保评估结果的准确性和可靠性。\n在感觉和知觉方面，评估通常包括视觉、听觉、触觉等感官功能的测试。例如，通过视觉识别任务，可以评估患者的视觉感知能力；通过听觉辨别任务，可以了解听觉处理能力。在运动功能评估中，专家会观察患者的运动协调性、精细动作能力等，通过一系列动作任务，评估大脑运动区域的功能状态。\n言语功能评估是神经心理学评估的重要组成部分，涉及语言理解、语言表达、语音识别等多个方面。通过言语流畅性测验、命名测验等，可以了解患者的语言能力，识别语言功能障碍的具体表现。\n注意力和记忆力评估是神经心理学评估的核心内容之一。通过持续注意力任务、短时记忆任务等，可以评估患者的注意力集中程度和记忆力水平。这些测验不仅帮助识别认知功能障碍，还为制定康复训练方案提供了依据。\n神经心理学评估的应用与前景\n神经心理学评估在临床诊断、康复治疗、科研究等方面具有广泛的应用前景。随着神经科学和心理学的发展，评估方法和工具不断更新，为临床实践提供了更多的选择和可能性。\n在临床诊断中，神经心理学评估帮助医生准确识别和诊断各种神经系统疾病和精神疾病。例如，通过评估可以早期发现阿尔茨海默病等认知障碍疾病，为早期干预和治疗提供依据。在康复治疗中，评估结果为制定个性化的康复计划提供了科学依据，帮助患者恢复认知功能，提高生活质量。\n在科研究中，神经心理学评估为探索大脑功能和行为关系提供了重要工具。通过对不同人群的评估数据进行分析，可以揭示大脑功能的规律和机制，为神经科学研究提供新的视角和方法。\n神经心理学评估的未来发展\n随着科技的进步和研究的深入，神经心理学评估的未来发展充满了无限可能。人工智能和大数据技术的应用，为评估方法的创新提供了新的动力。例如，通过机器学习算法，可以对大量评估数据进行分析，发现隐藏的模式和规律，提高评估的准确性和效率。\n此外，虚拟现实技术的应用，为神经心理学评估提供了新的工具和方法。通过虚拟现实环境，可以模拟真实的生活场景，进行更为全面和真实的评估。例如，通过虚拟现实技术，可以评估患者在日常生活中的认知功能表现，为康复训练提供更为真实的反馈和指导。\n总之，神经心理学评估是一门充满艺术与科学的学科，通过精确的测量和细致的观察，揭示大脑与行为之间的微妙关系。它不仅帮助临床医生准确诊断和治疗，还为科研究提供了重要工具和方法。随着科技的进步和研究的深入，神经心理学评估的未来发展充满了无限可能，为人类探索大脑奥秘提供了新的希望和动力。 🌟🧠✨\n\n。生成一个json文件，要求有且只有一个json代码块，每个实体的模式为{"type":TYPE,"name":NAME}, type必须包含于给定的实体类型，每个关系的模式为{"entity1":{"type":type1,"name":name1},"relation":RELATION,"entity2":{"type":type2, "name":name2}},其中entity1和entity2必须包含于实体识别的结果。提取json文件格式要求{"entities":[{"type":type1,"name":name1},{"type":type2,"name":name2}...],"relations":[{"entity1":{"type":type1, "name":name1},"relation":RELATION,"entity2":{"type":type2, "name":name2}}...]}'}, {'role': 'assistant', 'content': '```json\n{\n  "entities": [\n    {"type":"领域","name":"神经心理学评估"},\n    {"type":"目的","name":"识别功能性障碍与器质性障碍, 确定大脑损伤的部位和性质, 评估认知功能障碍的程度"},\n    {"type":"现象","name":"脑卒中"},\n    {"type":"现象","name":"脑外伤"},\n    {"type":"现象","name":"阿尔茨海默病"},\n    {"type":"现象","name":"抑郁症"},\n    {"type":"现象","name":"焦虑症"},\n    {"type":"方法","name":"H-R神经心理成套测验（HRB）"},\n    {"type":"方法","name":"范畴测验"},\n    {"type":"方法","name":"触摸操作测验"},\n    {"type":"方法","name":"节律测验"},\n    {"type":"过程","name":"视觉识别任务"},\n    {"type":"过程","name":"听觉辨别任务"},\n    {"type":"过程","name":"持续注意力任务"},\n    {"type":"过程","name":"短时记忆任务"},\n    {"type":"概念","name":"抽象思维和概念形成能力"},\n    {"type":"概念","name":"触觉和空间感知能力"},\n    {"type":"概念","name":"时间感知和运动协调能力"},\n    {"type":"概念","name":"感觉和知觉"},\n    {"type":"概念","name":"言语功能"},\n    {"type":"概念","name":"语言理解"},\n    {"type":"概念","name":"语言表达"},\n    {"type":"概念","name":"语音识别"},\n  ], \n  "relations": [\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"用于诊断","entity2":{"type":"现象","name":"脑卒中"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"用于诊断","entity2":{"type":"现象","name":"脑外伤"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"用于诊断","entity2":{"type":"现象","name":"阿尔茨海默病"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"有助于治疗决策","entity2":{"type":"现象","name":"抑郁症"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"有助于治疗决策","entity2":{"type":"现象","name":"焦虑症"}},\n    {"entity1":{"type":"方法","name":"H-R神经心理成套测验（HRB）"},"relation":"包含","entity2":{"type":"方法","name":"范畴测验"}},\n    {"entity1":{"type":"方法","name":"H-R神经心理成套测验（HRB）"},"relation":"包含","entity2":{"type":"方法","name":"触摸操作测验"}},\n    {"entity1":{"type":"方法","name":"H-R神经心理成套测验（HRB）"},"relation":"包含","entity2":{"type":"方法","name":"节律测验"}},\n    {"entity1":{"type":"方法","name":"范畴测验"},"relation":"评估","entity2":{"type":"概念","name":"抽象思维和概念形成能力"}},\n    {"entity1":{"type":"方法","name":"触摸操作测验"},"relation":"评估","entity2":{"type":"概念","name":"触觉和空间感知能力"}},\n    {"entity1":{"type":"方法","name":"节律测验"},"relation":"评估","entity2":{"type":"概念","name":"时间感知和运动协调能力"}},\n    {"entity1":{"type":"过程","name":"视觉识别任务"},"relation":"评估","entity2":{"type":"概念","name":"视觉感知能力"}},\n    {"entity1":{"type":"过程","name":"听觉辨别任务"},"relation":"评估","entity2":{"type":"概念","name":"听觉处理能力"}},\n    {"entity1":{"type":"过程","name":"持续注意力任务"},"relation":"评估","entity2":{"type":"概念","name":"注意力集中程度"}},\n    {"entity1":{"type":"过程","name":"短时记忆任务"},"relation":"评估","entity2":{"type":"概念","name":"记忆力水平"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"帮助诊断","entity2":{"type":"现象","name":"阿尔茨海默病"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"提供依据","entity2":{"type":"过程","name":"早期干预和治疗"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"帮助恢复","entity2":{"type":"过程","name":"认知功能"}},\n    {"entity1":{"type":"领域","name":"神经心理学评估"},"relation":"为科研究提供工具和方法","entity2":{"type":"过程","name":"探索大脑功能和行为关系的研究"}},\n    {"entity1":{"type":"技术","name":"人工智能和大数据技术"},"relation":"推动创新","entity2":{"type":"方法","name":"神经心理学评估方法"}},\n    {"entity1":{"type":"技术","name":"虚拟现实技术"},"relation":"提供新的工具和方法","entity2":{"type":"领域","name":"神经心理学评估"}}\n  ]\n}\n```'}]
+data\nlpxinlixue\nlpxinlixue1036.txt
+data\nlpxinlixue\nlpxinlixue1037.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:学科 {name: $name1})MERGE(b:疾病 {name: $name2})MERGE (a)-[r:在....中起作用]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:学科 {name: $name1})MERGE(b:疾病 {name: $name2})MERGE (a)-[r:在....中起作用]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:学科 {name: $name1})MERGE(b:现象 {name: $name2})MERGE (a)-[r:与....并重]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:学科 {name: $name1})MERGE(b:现象 {name: $name2})MERGE (a)-[r:与....并重]->(b)RETURN r"
+                                                                    ^}
+
+data\nlpxinlixue\nlpxinlixue1038.txt
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:组织 {name: $name1})MERGE(b:日期 {name: $name2})MERGE (a)-[r:在...引起关注与应用]->(b)RETURN r"
+                                                                    ^}
+
+Traceback (most recent call last):
+  File "d:\PsyQASystem\extract\knowledge_extract.py", line 147, in build
+    await handler.create_relationship(
+  File "d:\PsyQASystem\knowledge_graph\graph_database_handler.py", line 35, in create_relationship
+    result = await session.run(
+             ^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\session.py", line 327, in run
+    await self._auto_result._run(
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 231, in _run
+    await self._attach()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\work\result.py", line 425, in _attach
+    await self._connection.fetch_message()
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 195, in inner
+    await coroutine_func(*args, **kwargs)
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt.py", line 994, in fetch_message
+    res = await self._process_message(tag, fields)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_bolt5.py", line 1204, in _process_message
+    await response.on_failure(summary_metadata or {})
+  File "d:\PsyQASystem\.conda\Lib\site-packages\neo4j\_async\io\_common.py", line 254, in on_failure
+    raise self._hydrate_error(metadata)
+neo4j.exceptions.CypherSyntaxError: {code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input '..': expected a parameter, '&', '*', ':', 'WHERE', ']', '{' or '|' (line 1, column 68 (offset: 67))
+"MERGE (a:组织 {name: $name1})MERGE(b:日期 {name: $name2})MERGE (a)-[r:在...引起关注与应用]->(b)RETURN r"
+                                                                    ^}
+
+data\nlpxinlixue\nlpxinlixue1039.txt
+data\nlpxinlixue\nlpxinlixue104.txt
