@@ -71,7 +71,8 @@ def clean_relationship(relationship: str):
         relationship.replace("...", "")
         .replace("，", "")
         .replace("…", "")
-        .replace(" ", ""),
+        .replace(" ", "")
+        .replace("……", ""),
     )
 
 
