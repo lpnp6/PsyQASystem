@@ -43,3 +43,13 @@ class SiliconFlowDeepSeekR1(OpenaiBase):
             base_url="https://api.siliconflow.cn/v1",
             api_key=os.environ["SILICONFLOW_APIKEY"]
         )
+        
+@dataclass
+class ArkDeepSeekChat(OpenaiBase):
+    def __init__(self, model_name, config=None):
+        super().__init__(
+            model_name="deepseek-v3-241226",
+            config=config,
+            base_url="https://ark.cn-beijing.volces.com/api/v3/",
+            api_key=os.environ["ARK_APIKEY"]
+        )

@@ -4,6 +4,7 @@ import os
 import asyncio
 from rag.data import Document, Index
 from rag.prompt import system_prompt
+from rag.entity_relation_layer import update
 
 
 config = configparser.ConfigParser()
@@ -36,6 +37,9 @@ os.environ["DEEPSEEK_APIKEY"] = DEEPSEEK_APIKEY
 SILICONFLOW_APIKEY = config.get("SILICONFLOW", "API_KEY", fallback=None)
 os.environ["SILICONFLOW_APIKEY"] = SILICONFLOW_APIKEY
 
+ARK_APIKEY = config.get("ARK", "API_KEY", fallback=None)
+os.environ["ARK_APIKEY"] = ARK_APIKEY
+
 ELASTICSEARCH_URL = config.get("ELASTICSEARCH", "URL", fallback=None)
 ELASTICSEARCH_APIKEY = config.get("ELASTICSEARCH", "API_KEY", fallback=None)
 HIGH_LEVEL_INDEX_NAME = config.get(
@@ -49,7 +53,7 @@ os.environ["ELASTICSEARCH_APIKEY"] = ELASTICSEARCH_APIKEY
 os.environ["HIGH_LEVEL_INDEX_NAME"] = HIGH_LEVEL_INDEX_NAME
 os.environ["LOW_LEVEL_INDEX_NAME"] = LOW_LEVEL_INDEX_NAME
 
-rag = RAG.RAG(llm_model_name="SiliconFlowDeepSeekChat")
+rag = RAG.RAG(llm_model_name="ArkDeepSeekChat")
 
 
 async def test():
@@ -63,6 +67,8 @@ async def test():
     tasks.append(asyncio.create_task(rag.build_kg(chunks1)))
     tasks.append(asyncio.create_task(rag.build_kg(chunks2)))
     results = await asyncio.gather(*tasks)
+    for result in results:
+        await update(result, rag.vector_db_handler, rag.graph_db_handler)
     return results
 
 

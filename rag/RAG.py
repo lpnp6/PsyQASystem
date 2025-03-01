@@ -2,8 +2,7 @@ from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from collections import deque
 from typing import Type
-from functools import partial
-from rag.data import Document, Node, Index
+from rag.data import Document, Node
 from rag.base import GraphDatabaseHandler, BaseLLM, VectorDatabaseHandler
 from rag.embedding import Embedding_model, Spacy
 from rag.document_layer import chunk_by_sematic, insert_chunk
@@ -26,6 +25,7 @@ llm_model_paths = {
     "DeepSeekChat": ".llm.openai.deepseek",
     "SiliconFlowDeepSeekChat": ".llm.openai.deepseek",
     "SiliconFlowDeepSeekR1": ".llm.openai.deepseek",
+    "ArkDeepSeekChat": ".llm.openai.deepseek",
 }
 
 
@@ -88,7 +88,9 @@ class RAG:
                 "properties": {
                     "vector": {"type": "dense_vector", "dim": self.embedding_dim},
                     "node_id": {"type": "text"},
-                }
+                    "properties": {"type": "object"},
+                },
+                "settings": {"index": {"mapping": {"source": {"enabled": True}}}},
             }
         )
 
@@ -157,7 +159,7 @@ class RAG:
                 f"Successfully build knowledge graph from document {document_title}"
             )
             nodes = results["entities"]
-            await update(nodes, self.vector_db_handler, self.graph_db_handler)
+            return nodes
         except Exception as e:
             logger.error(
                 f"""Failed to extract knowledge from document {document_title} and insert into knowledge graph.\n{e}"""

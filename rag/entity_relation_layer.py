@@ -158,10 +158,14 @@ async def build_llm_based(
         type = entities[k]["type"]
         name = entities[k]["name"]
         description = entities[k]["description"]
-        type_embedding = np.mean([entity["type_embedding"] for entity in cluster])
-        name_embedding = np.mean([entity["name_embedding"] for entity in cluster])
+        type_embedding = np.mean(
+            np.array([entity["type_embedding"] for entity in cluster]), axis=0
+        )
+        name_embedding = np.mean(
+            np.array([entity["name_embedding"] for entity in cluster]), axis=0
+        )
         description_embedding = np.mean(
-            [entity["description_embedding"] for entity in cluster]
+            np.array([entity["description_embedding"] for entity in cluster]), axis=0
         )
         entity_node = Node(
             label="Entity",
@@ -264,9 +268,11 @@ async def build_llm_based(
         edge_id = min([edge_df.loc[i]["edge_id"] for i in v])
         name = edge_df.loc[k]["name"]
         description = edge_df.loc[k]["description"]
-        name_embedding = np.mean([edge_df.loc[i]["name_embedding"] for i in v])
+        name_embedding = np.mean(
+            np.array([edge_df.loc[i]["name_embedding"] for i in v]), axis=0
+        )
         description_embedding = np.mean(
-            [edge_df.loc[i]["description_embedding"] for i in v]
+            np.array([edge_df.loc[i]["description_embedding"] for i in v]), axis=0
         )
         from_node = edge_df.loc[k]["from"]
         to_node = edge_df.loc[k]["to"]
@@ -319,29 +325,24 @@ async def update(
         )
         for node in nodes
     ]
+    await vector_db_handler.insert_index(high_level_indices)
+    await vector_db_handler.insert_index(low_level_indices)
     tasks = []
     for i in range(len(nodes)):
         high_level_index = high_level_indices[i]
         low_level_index = low_level_indices[i]
         top_k = set()
-        top_k.update(await vector_db_handler.get_index(high_level_index))
-        top_k.update(await vector_db_handler.get_index(low_level_index))
+        if not all(element == 0 for element in high_level_index.vector):
+            top_k.update(await vector_db_handler.get_index(high_level_index))
+        if not all(element == 0 for element in low_level_index.vector):
+            top_k.update(await vector_db_handler.get_index(low_level_index))
         for index in top_k:
             node = Node(label="Entity", properties=index.properties)
-            if is_entity_duplicate(node, nodes[i]):
+            if is_entity_duplicate(node.properties, nodes[i].properties):
                 tasks.append(
                     asyncio.create_task(
                         graph_db_handler.insert_edge(
-                            node, node[i], Edge(label="SIMILAR")
+                            nodes[i], node, Edge(label="SIMILAR")
                         )
                     )
                 )
-                tasks.append(
-                    asyncio.create_task(
-                        graph_db_handler.insert_edge(
-                            node[i], node, Edge(label="SIMILAR")
-                        )
-                    )
-                )
-    await vector_db_handler.insert_index(high_level_indices)
-    await vector_db_handler.insert_index(low_level_indices)

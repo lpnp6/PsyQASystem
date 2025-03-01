@@ -1,6 +1,7 @@
 from elasticsearch import AsyncElasticsearch, Elasticsearch, helpers
 from dataclasses import dataclass, asdict
 from rag.base import VectorDatabaseHandler
+from collections import deque
 from rag.utils import logger
 from rag.data import Index
 import os
@@ -22,8 +23,8 @@ class ElasticsearchDatabaseHandler(VectorDatabaseHandler):
         with Elasticsearch(hosts=[self.url], api_key=self.__apikey) as _sync_client:
             if not _sync_client.indices.exists(index=self.high_level_index_name):
                 try:
-                    self._sync_client.indices.put_mapping(
-                        body=self.mapping, index=self.high_level_index_name
+                    _sync_client.indices.create(
+                        index=self.high_level_index_name, body=self.mapping
                     )
                     logger.info(f"Create index {self.high_level_index_name}")
                 except Exception as e:
@@ -33,8 +34,8 @@ class ElasticsearchDatabaseHandler(VectorDatabaseHandler):
                     raise e
             if not _sync_client.indices.exists(index=self.low_level_index_name):
                 try:
-                    self._sync_client.indices.put_mapping(
-                        body=self.mapping, index=self.low_level_index_name
+                    _sync_client.indices.create(
+                        index=self.low_level_index_name, body=self.mapping
                     )
                     logger.info(f"Create index {self.low_level_index_name}")
                 except Exception as e:
@@ -46,17 +47,32 @@ class ElasticsearchDatabaseHandler(VectorDatabaseHandler):
         logger.info(f"Connected to vector database at {self.url}")
 
     async def insert_index(self, indices: list[Index]):
-        bulk = [asdict(index) for index in indices]
-        results = await helpers.async_bulk(self.client, bulk)
+        bulk = [
+            {
+                "_index": index._index,
+                "_source": {
+                    "vector": index.vector,
+                    "node_id": index.node_id,
+                    "properties": index.properties,
+                },
+            }
+            for index in indices
+        ]
+        results = await helpers.async_bulk(
+            self.client, bulk, raise_on_error=False, raise_on_exception=False
+        )
         return results
 
     async def get_index(self, index: Index):
         query_vector = index.vector
+        query_node_id = index.node_id
         query_body = {
             "size": self.top_k,
             "query": {
                 "script_score": {
-                    "query": {"match_all": {}},
+                    "query": {
+                        "bool": {"must_not": {"term": {"node_id.keyword": query_node_id}}}
+                    },
                     "script": {
                         "source": "cosineSimilarity(params.query_vector, 'vector') + 1.0",
                         "params": {"query_vector": query_vector},

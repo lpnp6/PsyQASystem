@@ -6,6 +6,7 @@ from rag.base import GraphDatabaseHandler
 import numpy as np
 import asyncio
 import uuid
+import time
 import os
 import re
 
@@ -30,7 +31,8 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
             max_connection_lifetime=30 * 60,  # 30分钟重新建立连接
             connection_timeout=60,  # 60秒连接超时
             keep_alive=True,  # 启用TCP keep-alive
-            connection_acquisition_timeout=60,
+            connection_acquisition_timeout=120,
+            max_transaction_retry_time=30,
             max_connection_pool_size=MAX_CONNECTION_POOL_SIZE,
         )
         self._driver_lock = asyncio.Lock()
@@ -87,7 +89,7 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
     def close(self):
         self.driver.close()
 
-    async def insert_node(self, n: Node):
+    async def insert_node(self, n: Node, max_retries=3):
         label = n.label
         query = f"""
         MERGE (n:{label} {{node_id: $node_id}})
@@ -95,17 +97,27 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
         on MATCH SET n += $properties
         return n
         """
-        async with self._driver.session(database=self._database) as session:
-            record = await session.run(
-                query=query, node_id=n.properties["node_id"], properties=n.properties
-            )
-            node = await record.single()
-            if node is not None:
-                return n
-            else:
-                return None
+        for attempt in range(max_retries):
+            try:
+                async with self._driver.session(database=self._database) as session:
+                    record = await session.run(
+                        query=query,
+                        node_id=n.properties["node_id"],
+                        properties=n.properties,
+                    )
+                    node = await record.single()
+                    if node is not None:
+                        return n
+                    else:
+                        return None
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2**attempt)
+                    continue
+                else:
+                    return e
 
-    async def insert_edge(self, node1, node2, edge):
+    async def insert_edge(self, node1, node2, edge, max_retries=3):
         label = edge.label
         query = f"""MERGE (a:Entity{{node_id: $node_id1}})
                     MERGE (b:Entity{{node_id: $node_id2}})
@@ -116,11 +128,19 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
         node_id1 = node1.properties["node_id"]
         node_id2 = node2.properties["node_id"]
         properties = edge.properties
-        async with self._driver.session() as session:
-            result = await session.run(
-                query=query,
-                node_id1=node_id1,
-                node_id2=node_id2,
-                properties=properties,
-            )
-            return await result.single()
+        for attempt in range(max_retries):
+            try:
+                async with self._driver.session() as session:
+                    result = await session.run(
+                        query=query,
+                        node_id1=node_id1,
+                        node_id2=node_id2,
+                        properties=properties,
+                    )
+                    return await result.single()
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2**attempt)
+                    continue
+                else:
+                    return e

@@ -1376,3 +1376,238 @@ Unable to retrieve routing information
 2025-02-27 15:59:59,067 - RAG - INFO - LLM model deepseek-ai/DeepSeek-V2.5 api is available.
 2025-02-27 16:00:29,242 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
 2025-02-27 16:00:31,690 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-27 20:34:43,134 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-27-20-34-43_8e4cc058-260a-4864-8acc-028b51bc2e7e
+2025-02-27 20:34:43,134 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-27-20-34-43_8e4cc058-260a-4864-8acc-028b51bc2e7e
+2025-02-27 20:34:46,542 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-27 20:34:49,551 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-27 20:34:50,275 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-27 20:34:53,574 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-27 20:34:55,441 - RAG - INFO - LLM model deepseek-ai/DeepSeek-V2.5 api is available.
+2025-02-27 20:35:34,291 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-27-20-35-34_cafcca0f-cb57-4bfa-a9b8-150a9cd727a3
+2025-02-27 20:35:34,291 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-27-20-35-34_cafcca0f-cb57-4bfa-a9b8-150a9cd727a3
+2025-02-27 20:35:38,341 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-27 20:35:40,726 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-27 20:35:41,192 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-27 20:35:44,092 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-27 20:35:45,499 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-27 20:35:51,600 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-27 20:35:54,383 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-27 20:38:28,434 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-27-20-38-28_048d657e-aeb6-414c-9a75-5ef21c141a47
+2025-02-27 20:38:28,434 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-27-20-38-28_048d657e-aeb6-414c-9a75-5ef21c141a47
+2025-02-27 20:38:32,315 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-27 20:38:37,904 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-27 20:38:38,366 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-27 20:38:42,408 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-27 20:38:44,704 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-27 20:38:53,109 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-27 20:38:56,174 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-27 20:41:45,716 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-27 20:41:53,316 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 10:52:38,859 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-10-52-38_d882c426-369d-439e-8265-8ff001a6142b
+2025-02-28 10:52:38,861 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-10-52-38_d882c426-369d-439e-8265-8ff001a6142b
+2025-02-28 10:52:45,993 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 10:52:48,285 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 10:52:48,778 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 10:52:58,096 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 10:53:04,265 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 10:55:03,688 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-10-55-03_68a28888-a591-4f14-b6cd-d21812756cf4
+2025-02-28 10:55:03,691 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-10-55-03_68a28888-a591-4f14-b6cd-d21812756cf4
+2025-02-28 10:55:08,386 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 10:55:11,128 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 10:55:11,622 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 10:55:14,964 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 10:55:16,777 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 10:55:23,394 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 10:55:25,886 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 10:58:24,450 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 11:11:15,722 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-11-11-15_7adb6b9d-87bc-4b4c-afd5-543d09a68053
+2025-02-28 11:11:15,722 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-11-11-15_7adb6b9d-87bc-4b4c-afd5-543d09a68053
+2025-02-28 11:11:20,534 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 11:11:22,827 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 11:11:23,323 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 11:11:28,307 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 11:11:30,248 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 11:11:36,531 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 11:11:38,897 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 11:15:00,790 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 11:15:51,342 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 11:17:09,022 - RAG - ERROR - Failed to extract knowledge from document test1 and insert into knowledge graph.
+BadRequestError(400, 'search_phase_execution_exception', 'runtime error')
+2025-02-28 14:28:42,903 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-28-42_910c46aa-ebd6-4782-8b98-9c6f742bc2eb
+2025-02-28 14:28:42,904 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-28-42_910c46aa-ebd6-4782-8b98-9c6f742bc2eb
+2025-02-28 14:28:47,004 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:28:50,046 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 14:28:50,506 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 14:28:58,046 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 14:28:59,715 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 14:29:06,810 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 14:29:10,666 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 14:32:14,115 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 14:32:28,610 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 14:39:21,594 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-39-21_8eb13d45-a3be-4f93-a070-7eab70a4f3bc
+2025-02-28 14:39:21,595 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-39-21_8eb13d45-a3be-4f93-a070-7eab70a4f3bc
+2025-02-28 14:39:26,038 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:39:28,859 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 14:39:29,360 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 14:40:10,873 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-40-10_8f0443b1-ce24-4b69-95d9-5b0c8ec3c687
+2025-02-28 14:40:10,875 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-40-10_8f0443b1-ce24-4b69-95d9-5b0c8ec3c687
+2025-02-28 14:40:15,022 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:40:21,136 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 14:40:21,590 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 14:42:13,376 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-42-13_78941322-0e1d-4e62-994a-810186405a45
+2025-02-28 14:42:13,376 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-42-13_78941322-0e1d-4e62-994a-810186405a45
+2025-02-28 14:42:19,754 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:42:49,596 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-42-49_4968e674-2622-47e9-b2b5-d955f664d22a
+2025-02-28 14:42:49,602 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-42-49_4968e674-2622-47e9-b2b5-d955f664d22a
+2025-02-28 14:42:52,489 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:42:54,578 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 14:42:55,025 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 14:42:59,098 - RAG - INFO - Create index search-0ei4
+2025-02-28 14:43:00,627 - RAG - INFO - Create index search-kdos
+2025-02-28 14:43:00,628 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 14:43:02,179 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 14:43:07,926 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 14:43:10,316 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 14:46:30,157 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 14:46:30,299 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 14:57:59,359 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-14-57-59_2ce74760-82f3-496b-b92c-d3e0129e156f
+2025-02-28 14:57:59,360 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-14-57-59_2ce74760-82f3-496b-b92c-d3e0129e156f
+2025-02-28 14:58:02,456 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 14:58:05,221 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 14:58:05,687 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 14:58:15,994 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 14:58:17,652 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 14:58:23,914 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 14:58:27,260 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 15:01:23,018 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 15:01:23,108 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 15:12:46,015 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-15-12-46_7de59c6b-b10e-4c15-a248-ff4bb87a4672
+2025-02-28 15:12:46,017 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-15-12-46_7de59c6b-b10e-4c15-a248-ff4bb87a4672
+2025-02-28 15:12:51,097 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 15:12:59,953 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 15:13:12,826 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 15:13:18,376 - RAG - INFO - Create index search-0ei4
+2025-02-28 15:13:19,833 - RAG - INFO - Create index search-kdos
+2025-02-28 15:13:19,833 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 15:13:21,609 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 15:13:43,925 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 15:13:51,759 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 15:16:41,675 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 15:16:41,749 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 15:18:48,991 - RAG - ERROR - Failed to extract knowledge from document test1 and insert into knowledge graph.
+2 document(s) failed to index.
+2025-02-28 16:04:35,480 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-16-04-35_a919046e-1745-456a-b726-4b51ec2aa4a0
+2025-02-28 16:04:35,480 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-16-04-35_a919046e-1745-456a-b726-4b51ec2aa4a0
+2025-02-28 16:04:38,688 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 16:04:40,884 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 16:04:41,348 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 16:04:50,538 - RAG - INFO - Create index search-0ei4
+2025-02-28 16:04:51,912 - RAG - INFO - Create index search-kdos
+2025-02-28 16:04:51,913 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 16:04:56,198 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 16:05:07,840 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 16:05:10,983 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 16:07:28,904 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 16:07:29,096 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-02-28 16:27:36,621 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-16-27-36_bba40941-5ae7-45f6-8175-602123453d6d
+2025-02-28 16:27:36,623 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-16-27-36_bba40941-5ae7-45f6-8175-602123453d6d
+2025-02-28 16:28:31,529 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-02-28-16-28-31_b01f89a1-00d1-4c3e-ae4b-f9380a04148e
+2025-02-28 16:28:31,531 - RAG - INFO - 创建工作目录./lightrag_cache_2025-02-28-16-28-31_b01f89a1-00d1-4c3e-ae4b-f9380a04148e
+2025-02-28 16:28:35,522 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-02-28 16:28:38,563 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-02-28 16:28:39,038 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-02-28 16:28:49,550 - RAG - INFO - Create index search-0ei4
+2025-02-28 16:28:51,070 - RAG - INFO - Create index search-kdos
+2025-02-28 16:28:51,073 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-02-28 16:28:54,000 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-02-28 16:29:01,424 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-02-28 16:29:04,116 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-02-28 16:31:58,623 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-02-28 16:31:59,952 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 14:22:14,046 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-14-22-14_899e0849-8094-49b1-b955-a3c1e47b4464
+2025-03-01 14:22:14,047 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-14-22-14_899e0849-8094-49b1-b955-a3c1e47b4464
+2025-03-01 14:24:48,518 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 14:24:51,795 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 14:24:52,303 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 14:25:00,201 - RAG - INFO - Create index search-0ei4
+2025-03-01 14:25:01,540 - RAG - INFO - Create index search-kdos
+2025-03-01 14:25:01,541 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 14:25:03,323 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 14:25:09,593 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 14:25:12,103 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 14:28:23,328 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 14:28:23,380 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 14:49:19,571 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-14-49-19_daa3783a-b16c-489e-a426-59ae256946b3
+2025-03-01 14:49:19,573 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-14-49-19_daa3783a-b16c-489e-a426-59ae256946b3
+2025-03-01 14:49:45,976 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 14:49:48,422 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 14:49:48,902 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 14:49:57,477 - RAG - INFO - Create index search-0ei4
+2025-03-01 14:49:59,385 - RAG - INFO - Create index search-kdos
+2025-03-01 14:49:59,387 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 14:50:01,092 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 14:50:08,632 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 14:50:11,344 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 14:54:32,926 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 14:54:33,721 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 15:02:05,358 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-15-02-05_e09feea3-db71-46e9-aaad-94820118c563
+2025-03-01 15:02:05,358 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-15-02-05_e09feea3-db71-46e9-aaad-94820118c563
+2025-03-01 15:02:09,816 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 15:02:12,150 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 15:02:12,623 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 15:02:20,308 - RAG - INFO - Create index search-0ei4
+2025-03-01 15:02:21,858 - RAG - INFO - Create index search-kdos
+2025-03-01 15:02:21,860 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 15:02:23,618 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 15:02:30,348 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 15:02:32,907 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 15:05:56,532 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 15:05:56,566 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 15:08:39,877 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-15-08-39_4571a272-68dd-44f1-811a-f21fb8be262a
+2025-03-01 15:08:39,879 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-15-08-39_4571a272-68dd-44f1-811a-f21fb8be262a
+2025-03-01 15:08:43,510 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 15:08:46,013 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 15:08:46,485 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 15:08:54,084 - RAG - INFO - Create index search-0ei4
+2025-03-01 15:08:55,398 - RAG - INFO - Create index search-kdos
+2025-03-01 15:08:55,400 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 15:08:56,839 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 15:09:02,674 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 15:09:05,035 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 15:13:00,446 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 15:13:00,738 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 15:30:32,150 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-15-30-32_cf7fcfe5-b06c-42e7-9214-3b9b68065ad2
+2025-03-01 15:30:32,153 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-15-30-32_cf7fcfe5-b06c-42e7-9214-3b9b68065ad2
+2025-03-01 15:31:05,333 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 15:31:08,455 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 15:31:08,924 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 15:31:14,708 - RAG - INFO - Create index search-0ei4
+2025-03-01 15:31:16,633 - RAG - INFO - Create index search-kdos
+2025-03-01 15:31:16,633 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 15:31:18,457 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 15:31:24,947 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 15:31:28,173 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 15:34:40,414 - RAG - INFO - Successfully build knowledge graph from document test2
+2025-03-01 15:34:40,420 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 16:27:55,588 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-16-27-55_6db85e25-a356-4e17-be50-0ed823211f87
+2025-03-01 16:27:55,588 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-16-27-55_6db85e25-a356-4e17-be50-0ed823211f87
+2025-03-01 16:27:59,519 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 16:28:02,100 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 16:28:02,551 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 16:28:08,929 - RAG - INFO - Create index search-0ei4
+2025-03-01 16:28:10,219 - RAG - INFO - Create index search-kdos
+2025-03-01 16:28:10,221 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 16:28:13,072 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 16:28:22,534 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 16:28:26,220 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 16:46:14,715 - RAG - INFO - 日志记录器初始化,工作目录为./lightrag_cache_2025-03-01-16-46-14_963e3a13-b08b-49f8-a529-b532e49d17e7
+2025-03-01 16:46:14,715 - RAG - INFO - 创建工作目录./lightrag_cache_2025-03-01-16-46-14_963e3a13-b08b-49f8-a529-b532e49d17e7
+2025-03-01 16:46:19,216 - RAG - INFO - Graph-db-handler not found. try to creat a specialized database.
+2025-03-01 16:46:22,622 - RAG - WARNING - This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database.
+2025-03-01 16:46:23,084 - RAG - INFO - Connected to graph-db-handler atneo4j+s://798d60cd.databases.neo4j.io
+2025-03-01 16:46:34,372 - RAG - INFO - Connected to vector database at https://my-elasticsearch-project-d9cb7b.es.us-east-1.aws.elastic.cloud:443
+2025-03-01 16:46:36,143 - RAG - INFO - LLM model deepseek-v3-241226 api is available.
+2025-03-01 16:48:38,459 - RAG - INFO - Successfully split document test1 into chunks and insert them into graph database.
+2025-03-01 16:48:40,863 - RAG - INFO - Successfully split document test2 into chunks and insert them into graph database.
+2025-03-01 16:52:07,644 - RAG - INFO - Successfully build knowledge graph from document test1
+2025-03-01 16:52:07,844 - RAG - INFO - Successfully build knowledge graph from document test2

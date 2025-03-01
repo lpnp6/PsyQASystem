@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 import time
+import hashlib
 
 
 @dataclass
@@ -31,7 +32,8 @@ class Index:
     properties: dict
 
     def __hash__(self):
-        return self.node_id
+        hash_object =  hashlib.sha256(self.node_id.encode())
+        return int(hash_object.hexdigest(), 16)
 
     def __eq__(self, other):
         if isinstance(other, Index):

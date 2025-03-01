@@ -20,6 +20,8 @@ class Embedding_model:
     async def get_sents(self, text):
         raise NotImplementedError
 
+    async def extract_key_words(self, text):
+        raise NotImplementedError
 
 @dataclass
 class Spacy(Embedding_model):
@@ -58,6 +60,18 @@ class Spacy(Embedding_model):
     async def get_sents(self, text):
         loop = asyncio.get_event_loop()
         return await loop.run_in_executor(self._executor, self._sync_get_sents, text)
+    
+    def _sync_get_keywords(self, text):
+        with self.lock:
+            doc = self.model(text)
+            low_level_keywords = [ent.text for ent in doc.ents]
+            high_level_keywords = []
+            for ent in doc.ents:
+                head = ent.root
+                while head.dep_ == 'compound' and head.head != head:
+                    head = head.head
+                if head.text.lower() != ent.text.lower():
+                    high_level_keywords.append(head.text)
 
     def normalize(embeddings):
         embeddings = np.array(embeddings, dtype=np.float32)
