@@ -1,7 +1,0 @@
-{
-    "terminal.integrated.cwd": "${fileDirname}",  // 设置终端工作目录为当前文件所在目录
-    "terminal.integrated.splitCwd": "initial" , // 子终端继承父终端工作目录
-    "terminal.integrated.env.windows": {
-        "PYTHONPATH": "${workspaceFolder};${env:PYTHONPATH}"
-    }
-}
