@@ -56,7 +56,7 @@ class RAG:
     log_dir: str = field(default=os.getcwd())
 
     embedding_model_cls: Embedding_model = field(default=Spacy)
-    embedding_dim: int = field(default=300)
+    embedding_dim: int = field(default=768)#embedding_dim should be consistent with embedding_model
 
     namespace_prefix: str = field(default="")
     graph_db_handler_name: str = field(default="Neo4jGraphDatabaseHandler")

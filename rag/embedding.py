@@ -23,10 +23,11 @@ class Embedding_model:
     async def extract_key_words(self, text):
         raise NotImplementedError
 
+
 @dataclass
 class Spacy(Embedding_model):
-    model_name: str = field(default="zh_core_web_lg")
-    embedding_dim: int = field(default=300)
+    model_name: str = field(default="zh_core_web_trf")
+    embedding_dim: int = field(default=768)
     _model: Optional[Any] = field(init=False, default=None)
     _executor: ThreadPoolExecutor = field(
         default_factory=lambda: ThreadPoolExecutor(max_workers=1024)
@@ -60,18 +61,6 @@ class Spacy(Embedding_model):
     async def get_sents(self, text):
         loop = asyncio.get_event_loop()
         return await loop.run_in_executor(self._executor, self._sync_get_sents, text)
-    
-    def _sync_get_keywords(self, text):
-        with self.lock:
-            doc = self.model(text)
-            low_level_keywords = [ent.text for ent in doc.ents]
-            high_level_keywords = []
-            for ent in doc.ents:
-                head = ent.root
-                while head.dep_ == 'compound' and head.head != head:
-                    head = head.head
-                if head.text.lower() != ent.text.lower():
-                    high_level_keywords.append(head.text)
 
     def normalize(embeddings):
         embeddings = np.array(embeddings, dtype=np.float32)
@@ -79,3 +68,8 @@ class Spacy(Embedding_model):
         norms = np.linalg.norm(embeddings, axis=axis, keepdims=True)
         norms[norms == 0] = 1e-10
         return embeddings / norms
+    
+if __name__ == "__main__":
+     m = Spacy()   
+     doc = m.model("公司位于？")
+     print("ok")

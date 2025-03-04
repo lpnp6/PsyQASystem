@@ -10,8 +10,8 @@ class OpenaiBase(BaseLLM):
     def __init__(self, model_name, config, base_url, api_key):
         super().__init__(model_name=model_name, config=config)
         self.base_url = base_url
-        self.system_prompt = config["system_prompt"]
-        self.response_prefix = config["response_prefix"]
+        self.system_prompt = config.get("system_prompt")
+        self.response_prefix = config.get("response_prefix")
         self.__api_key = api_key
         self.client = OpenAI(api_key=self.__api_key, base_url=self.base_url)
         self.context = []
