@@ -131,7 +131,14 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
         WITH COLLECT(DISTINCT n) AS targetNodes
         UNWIND targetNodes AS node
         MATCH (node)-[r]->(neighbor)
-        RETURN node, r, neighbor"""
+        WITH node, r, neighbor
+        OPTIONAL MATCH (neighbor)-[r2]->(neighborNeighbor)
+        WHERE TYPE(r) = 'SIMILAR' AND TYPE(r2) <> 'SIMILAR'
+        RETURN 
+        CASE 
+            WHEN TYPE(r) = 'SIMILAR' THEN [neighbor, r2, neighborNeighbor] 
+            ELSE [node, r, neighbor] 
+        END AS result"""
         for attempt in range(max_retries):
             try:
                 async with self._driver.session() as session:
@@ -148,3 +155,16 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
                     continue
                 else:
                     return e
+                
+    async def keyword_search(self, node: Node, max_retries = 3)->tuple[Node, Edge, Node]:
+        query = f"""
+        MATCH (n:Entiy)
+        WITH n,
+        apoc.algo.cosineSimilarity(n.name_embedding, $name_embedding) AS similarity
+        ORDER BY similarity DESC
+        LIMIT $k
+        WITH COLLECT(DISTINCT n) AS targetNodes
+        UNWIND targetNodes AS node
+        MATCH (node)-[r]->(neighbor)
+        RETURN node, r, neighbor"""
+        

@@ -1,6 +1,5 @@
-from rag.data import Node, Edge
-from rag.base import BaseLLM, GraphDatabaseHandler
-from rag.embedding import Embedding_model, Spacy
+from rag.base import GraphDatabaseHandler
+from rag.embedding import Embedding_model
 import asyncio
 
 
@@ -31,3 +30,13 @@ async def extract_subject_predicate(
     return subject_span, predicate_span
 
 
+async def retrieve(
+    query: str, embedding: Embedding_model, gragh_db_handler: GraphDatabaseHandler
+):
+    subject_span, predicate_span = await extract_subject_predicate(
+        embedding=embedding, text=query
+    )
+    
+if __name__ == "__main__":
+    print(asyncio
+          .run(extract_subject_predicate("伊安·麦克德摩写了哪本书")))
