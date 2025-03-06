@@ -1,31 +1,30 @@
 from dataclasses import dataclass, field, asdict
-from datetime import datetime
 from collections import deque
 from typing import Type
 from rag.data import Document, Node
-from rag.base import GraphDatabaseHandler, BaseLLM, VectorDatabaseHandler
+from rag.base import GraphDatabaseHandler, BaseLLM
 from rag.embedding import Embedding_model, Spacy
 from rag.document_layer import chunk_by_sematic, insert_chunk
 from rag.utils import logger, set_logger
-from rag.prompt import system_prompt
-from rag.entity_relation_layer import build_llm_based, update
-import uuid
+from rag.prompt import system_prompt_knowledge_extraction
+from rag.entity_relation_layer import build_llm_based
 import os
 import logging
 import asyncio
 
 db_handler_paths = {
     "Neo4jGraphDatabaseHandler": ".db.neo4j_db_handler",
-    "ElasticsearchDatabaseHandler": ".db.elasticsearch_db_handler",
 }
 
 llm_model_paths = {
-    "DeepSeekR1": ".llm.openai.deepseek",
+    "DeepSeekR1": ".llm.openai.llms",
     "Spark": ".llm.spark.spark",
-    "DeepSeekChat": ".llm.openai.deepseek",
-    "SiliconFlowDeepSeekChat": ".llm.openai.deepseek",
-    "SiliconFlowDeepSeekR1": ".llm.openai.deepseek",
-    "ArkDeepSeekChat": ".llm.openai.deepseek",
+    "DeepSeekChat": ".llm.openai.llms",
+    "SiliconFlowDeepSeekChat": ".llm.openai.llms",
+    "SiliconFlowDeepSeekR1": ".llm.openai.llms",
+    "Ark": ".llm.openai.llms",
+    "OllamaDeepSeekR1": ".llm.openai.llms",
+    "Openai4oMini": ".llm.openai.llms",
 }
 
 
@@ -48,25 +47,21 @@ def lazy_external_import(module_name, class_name):
 
 @dataclass
 class RAG:
-    working_dir: str = field(
-        default_factory=lambda: f"./lightrag_cache_{datetime.now().strftime('%Y-%m-%d-%H-%M-%S')}_{uuid.uuid4()}"
-    )
-
     log_level: int = field(default=logging.INFO)
     log_dir: str = field(default=os.getcwd())
 
     embedding_model_cls: Embedding_model = field(default=Spacy)
-    embedding_dim: int = field(default=768)#embedding_dim should be consistent with embedding_model
+    embedding_dim: int = field(
+        default=768
+    )  # embedding_dim should be consistent with embedding_model
 
     namespace_prefix: str = field(default="")
     graph_db_handler_name: str = field(default="Neo4jGraphDatabaseHandler")
 
-    vector_db_handler_name: str = field(default="ElasticsearchDatabaseHandler")
-    top_k: int = field(default=10)
-
     llm_model_name: str = field(default="DeepSeekR1")
-    system_prompt: str = field(default=system_prompt)
+    system_prompt: str = field(default=system_prompt_knowledge_extraction)
     response_prefix: str = field(default=None)
+    json_format: bool = field(default=True)
 
     chunking_func: callable = field(default=chunk_by_sematic)
     insert_chunk: callable = field(default=insert_chunk)
@@ -78,28 +73,14 @@ class RAG:
         absolute_path = os.path.join(self.log_dir, "RAG.log")
         set_logger(absolute_path)
         logger.setLevel(self.log_level)
-        logger.info(f"日志记录器初始化,工作目录为{self.working_dir}")
-        if not os.path.exists(self.working_dir):
-            logger.info(f"创建工作目录{self.working_dir}")
-            # os.makedirs(self.working_dir)
-
-        vector_database_mapping: dict = field(
-            default_factory=lambda: {
-                "properties": {
-                    "vector": {"type": "dense_vector", "dim": self.embedding_dim},
-                    "node_id": {"type": "text"},
-                    "properties": {"type": "object"},
-                },
-                "settings": {"index": {"mapping": {"source": {"enabled": True}}}},
-            }
-        )
+        logger.info(f"Initialize logger.")
 
         global_config = asdict(self)
         _sensitive_keys = {}
         _global_config = ",\n".join(
             [f"{k} = {v}" for k, v in global_config.items() if k not in _sensitive_keys]
         )
-        logger.debug("初始化配置参数" + _global_config)
+        logger.info("Initialize parameters" + _global_config)
 
         self.embedding_model = self.embedding_model_cls(
             embedding_dim=self.embedding_dim
@@ -110,14 +91,6 @@ class RAG:
         )
         self.graph_db_handler: GraphDatabaseHandler = self.graph_db_handler_cls(
             namespace=self.namespace_prefix + "graph_db_handler",
-            global_config=global_config,
-        )
-
-        self.vector_db_handler_cls: Type[VectorDatabaseHandler] = self._get_cls(
-            self.vector_db_handler_name, db_handler_paths
-        )
-        self.vector_db_handler: VectorDatabaseHandler = self.vector_db_handler_cls(
-            namespace=self.namespace_prefix + "vector_db_handler",
             global_config=global_config,
         )
 
@@ -167,7 +140,7 @@ class RAG:
             raise e
 
     async def build_kg_batch(
-        self, documents: list[Document], batch_size=512, max_attempt=3
+        self, documents: list[Document], batch_size=256, max_attempt=3
     ):
         queue = deque((document, 0) for document in documents)
         while queue:

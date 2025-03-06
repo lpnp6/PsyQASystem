@@ -1,6 +1,6 @@
-from neo4j import AsyncGraphDatabase, GraphDatabase, exceptions
+from neo4j import AsyncGraphDatabase
 from dataclasses import dataclass
-from rag.data import Node
+from rag.data import Node, Edge
 from rag.utils import logger
 from rag.base import GraphDatabaseHandler
 import numpy as np
@@ -22,9 +22,7 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
         USERNAME = os.environ.get("NEO4J_USERNAME")
         PASSWORD = os.environ.get("NEO4J_PASSWORD")
         MAX_CONNECTION_POOL_SIZE = os.environ.get("NEO4J_MAX_CONNECTION_POOL_SIZE", 800)
-        DATABASE = os.environ.get(
-            "NEO4Jdatabase", re.sub(r"[^a-zA-Z0-9-]", "-", namespace)
-        )
+
         self._driver = AsyncGraphDatabase.driver(
             URI,
             auth=(USERNAME, PASSWORD),
@@ -35,56 +33,6 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
             max_transaction_retry_time=30,
             max_connection_pool_size=MAX_CONNECTION_POOL_SIZE,
         )
-        self._driver_lock = asyncio.Lock()
-
-        with GraphDatabase.driver(URI, auth=(USERNAME, PASSWORD)) as _sync_driver:
-            for database in (DATABASE, None):
-                self._database = database
-                connected = False
-                try:
-                    with _sync_driver.session(database=database) as session:
-                        try:
-                            session.run("MATCH (n) RETURN n LIMIT 0")
-                            logger.info(f"Connected to {DATABASE} at{URI}")
-                            connected = True
-                        except exceptions.ServiceUnavailable as e:
-                            logger.error(
-                                f"{database} at {URI} is not available".capitalize()
-                            )
-                            raise e
-                except exceptions.AuthError as e:
-                    logger.error(f"Authentication failed for {database} as {URI}")
-                    raise e
-                except exceptions.ClientError as e:
-                    if e.code == "Neo.ClientError.Database.DatabaseNotFound":
-                        logger.info(
-                            f"{database} not found. Try to creat a specialized database.".capitalize()
-                        )
-                        try:
-                            with _sync_driver.session() as session:
-                                session.run(
-                                    f"CREATE DATABASE `{database}` IF NOT EXISTS"
-                                )
-                                logger.info(f"{database} at {URI} created".capitalize())
-                                connected = True
-                        except (exceptions.ClientError, exceptions.DatabaseError) as e:
-                            if (
-                                e.code
-                                == "Neo.ClientError.Statement.UnsupportedAdministrationCommand"
-                                or e.code
-                                == "Neo.DatabaseError.Statement.ExecutionFailed"
-                            ):
-                                if database is not None:
-                                    logger.warning(
-                                        "This Neo4j instance does not support creating databases. Try to use Neo4j Desktop/Enterprise version or DozerDB instead. Fallback to use the default database."
-                                    )
-                            if database is None:
-                                logger.error(f"Failed to create {database} at {URI}")
-                                raise e
-                except Exception as e:
-                    pass
-                if connected:
-                    break
 
     def close(self):
         self.driver.close()
@@ -99,7 +47,7 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
         """
         for attempt in range(max_retries):
             try:
-                async with self._driver.session(database=self._database) as session:
+                async with self._driver.session() as session:
                     record = await session.run(
                         query=query,
                         node_id=n.properties["node_id"],
@@ -138,6 +86,62 @@ class Neo4jGraphDatabaseHandler(GraphDatabaseHandler):
                         properties=properties,
                     )
                     return await result.single()
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2**attempt)
+                    continue
+                else:
+                    return e
+
+    async def merge(self, node: Node, max_retries=3):
+        node_id = node.properties.get("node_id")
+        query = f"""MATCH (new_node:Entity {{node_id: $node_id}}), (existing_node:Entity)
+                    WITH new_node, existing_node,
+                    gds.similarity.cosine(new_node.name_embedding, existing_node.name_embedding) AS sim_name,
+                    gds.similarity.cosine(new_node.type_embedding, existing_node.type_embedding) AS sim_type,
+                    gds.similarity.cosine(new_node.description_embedding, existing_node.description_embedding) AS sim_description
+                    WITH new_node, existing_node, sim_name, sim_type, sim_description,
+                    (sim_name * 0.6 + sim_type * 0.3 + sim_description * 0.1) AS composite_sim
+                    WHERE composite_sim > 0.95 AND new_node.node_id <> existing_node.node_id AND new_node.document_id <> existing_node.document_id
+                    CREATE (new_node)-[:SIMILAR]->(existing_node)
+                    CREATE (existing_node)-[:SIMILAR]->(new_node)
+                    RETURN new_node, existing_node"""
+        for attempt in range(max_retries):
+            try:
+                async with self._driver.session() as session:
+                    result = await session.run(query=query, node_id=node_id)
+                    return await result.single()
+            except Exception as e:
+                if attempt < max_retries - 1:
+                    time.sleep(2**attempt)
+                    continue
+                else:
+                    return e
+
+    async def semantic_search(
+        self, node: Node, top_k: int, max_retries=3
+    ) -> tuple[Node, Edge, Node]:
+        name_embedding = node.properties.get("name_embedding")
+        query = f"""
+        MATCH (n:Entiy)
+        WITH n,
+        apoc.algo.cosineSimilarity(n.name_embedding, $name_embedding) AS similarity
+        ORDER BY similarity DESC
+        LIMIT $k
+        WITH COLLECT(DISTINCT n) AS targetNodes
+        UNWIND targetNodes AS node
+        MATCH (node)-[r]->(neighbor)
+        RETURN node, r, neighbor"""
+        for attempt in range(max_retries):
+            try:
+                async with self._driver.session() as session:
+                    result = await session.run(
+                        query=query, name_embedding=name_embedding, k=top_k
+                    )
+                    records = []
+                    async for record in result:
+                        records.append((record["node"], record["r"], record["neighbor"]))
+                    return records
             except Exception as e:
                 if attempt < max_retries - 1:
                     time.sleep(2**attempt)

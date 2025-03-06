@@ -1,6 +1,7 @@
 from rag.llm.openai.openai_base import OpenaiBase
 from dataclasses import dataclass
 import os
+import openai
 import asyncio
 
 
@@ -49,10 +50,10 @@ class SiliconFlowDeepSeekR1(OpenaiBase):
 
 
 @dataclass
-class ArkDeepSeekChat(OpenaiBase):
+class Ark(OpenaiBase):
     def __init__(self, model_name, config=None):
         super().__init__(
-            model_name="deepseek-v3-241226",
+            model_name="doubao-1-5-pro-32k-250115",
             config=config,
             base_url="https://ark.cn-beijing.volces.com/api/v3/",
             api_key=os.environ["ARK_APIKEY"],
@@ -60,15 +61,13 @@ class ArkDeepSeekChat(OpenaiBase):
 
 
 @dataclass
-class OllamaDeepSeekR1(OpenaiBase):
+class Openai4oMini(OpenaiBase):
     def __init__(self, model_name=None, config=None):
         super().__init__(
-            model_name="deepseek-r1",
+            model_name="gpt-4o-mini",
             config=config,
-            base_url="https://10.29.0.1:8000/",
-            api_key="ollama",
+            base_url=None,
+            api_key="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",
         )
 
 
-llm = OllamaDeepSeekR1(config=dict())
-print(asyncio.run(llm.generate("字节跳动位于北京")))

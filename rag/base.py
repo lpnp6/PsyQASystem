@@ -22,15 +22,9 @@ class GraphDatabaseHandler(Handler):
 
     async def insert_edge(self, node1: Node, node2: Node, edge: Edge):
         raise NotImplementedError
-
-
-@dataclass
-class VectorDatabaseHandler(Handler):
-    async def insert_index(self, indices: list[Index]):
+    
+    async def merge(self, node:Node):
         raise NotImplementedError
-    async def get_index(self, index: Index ):
-        raise NotImplementedError
-
 
 @dataclass
 class BaseLLM:

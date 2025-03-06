@@ -1,7 +1,7 @@
-from rag.data import Node, Edge, Index
-from rag.base import BaseLLM, GraphDatabaseHandler, VectorDatabaseHandler
+from rag.data import Node, Edge
+from rag.base import BaseLLM, GraphDatabaseHandler
 from rag.embedding import Embedding_model
-from rag.utils import UnionFind
+from rag.utils import UnionFind, logger
 from collections import defaultdict
 from tqdm.asyncio import tqdm_asyncio
 from dataclasses import asdict
@@ -10,6 +10,7 @@ import pandas as pd
 import os
 import faiss
 import re
+import regex
 import uuid
 import json
 import asyncio
@@ -48,7 +49,6 @@ def is_relation_duplicate(r1, r2, threshold=0.95):
     else:
         return False
 
-
 async def build_llm_based(
     chunk_nodes: Node,
     graph_db_handler: GraphDatabaseHandler,
@@ -68,7 +68,13 @@ async def build_llm_based(
         tasks.append(asyncio.create_task(llm_model.generate(text)))
     results = await tqdm_asyncio.gather(*tasks)
     for result in results:
-        js = json.loads(result.strip("```").strip("json"))
+        if isinstance(result, Exception):
+            continue
+        try:
+            js = json.loads(result.strip("```").strip("json"))
+        except json.JSONDecodeError as e:
+            logger.error(e)
+            continue
         entities.extend(js["entities"])
         relations.extend(js["relations"])
 
@@ -92,8 +98,6 @@ async def build_llm_based(
     )
 
     name_embeddings = None
-    type_embeddings = None
-    description_embeddings = None
     for entity in entities:
 
         node_id = "node-" + str(uuid.uuid4())
@@ -118,20 +122,12 @@ async def build_llm_based(
             description_embedding,
             update_time,
         ]
-        if name_embeddings is not None:
+        if name_embeddings is not None and not all(
+            element == 0 for element in name_embedding
+        ):
             name_embeddings = np.vstack((name_embeddings, np.array(name_embedding)))
-        else:
+        elif not all(element == 0 for element in name_embedding):
             name_embeddings = np.array([name_embedding])
-        if type_embeddings is not None:
-            type_embeddings = np.vstack((type_embeddings, np.array(type_embedding)))
-        else:
-            type_embeddings = np.array([type_embedding])
-        if description_embeddings is not None:
-            description_embeddings = np.vstack(
-                (description_embeddings, np.array(description_embedding))
-            )
-        else:
-            description_embeddings = np.array([description_embedding])
     name_index = build_index(name_embeddings)
 
     node_uf = UnionFind(len(entities))
@@ -186,8 +182,11 @@ async def build_llm_based(
         )
         emerged_nodes[k] = entity_node
         tasks.append(asyncio.create_task(graph_db_handler.insert_node(entity_node)))
-    results["entities"] = await tqdm_asyncio.gather(*tasks)
-
+    results["entities"] = await asyncio.gather(*tasks)
+    tasks = []
+    for node in emerged_nodes.values():
+        tasks.append(asyncio.create_task(graph_db_handler.merge(node=node)))
+    await tqdm_asyncio.gather(*tasks)
     edge_df = pd.DataFrame(
         columns=[
             "edge_id",
@@ -231,17 +230,13 @@ async def build_llm_based(
             node2,
             update_time,
         ]
-        if name_embeddings is not None:
+        if name_embeddings is not None and not all(
+            element == 0 for element in name_embedding
+        ):
             name_embeddings = np.vstack((name_embeddings, np.array(name_embedding)))
-        else:
+        elif not all(element == 0 for element in name_embedding):
             name_embeddings = np.array(name_embedding)
 
-        if description_embeddings is not None:
-            description_embeddings = np.vstack(
-                (description_embeddings, np.array(description_embedding))
-            )
-        else:
-            description_embeddings = np.array(description_embedding)
     name_index = build_index(name_embeddings)
 
     edge_uf = UnionFind(len(edge_df))
@@ -296,53 +291,8 @@ async def build_llm_based(
                 )
             )
         )
-    results["relations"] = await tqdm_asyncio.gather(*tasks)
+    results["relations"] = await asyncio.gather(*tasks)
     return results
 
 
-async def update(
-    nodes: list[Node],
-    vector_db_handler: VectorDatabaseHandler,
-    graph_db_handler: GraphDatabaseHandler,
-):
-    high_level_index_name = os.environ.get("HIGH_LEVEL_INDEX_NAME")
-    low_level_index_name = os.environ.get("LOW_LEVEL_INDEX_NAME")
-    high_level_indices = [
-        Index(
-            _index=high_level_index_name,
-            vector=node.properties["type_embedding"],
-            node_id=node.properties["node_id"],
-            properties=node.properties,
-        )
-        for node in nodes
-    ]
-    low_level_indices = [
-        Index(
-            _index=low_level_index_name,
-            vector=node.properties["name_embedding"],
-            node_id=node.properties["node_id"],
-            properties=node.properties,
-        )
-        for node in nodes
-    ]
-    await vector_db_handler.insert_index(high_level_indices)
-    await vector_db_handler.insert_index(low_level_indices)
-    tasks = []
-    for i in range(len(nodes)):
-        high_level_index = high_level_indices[i]
-        low_level_index = low_level_indices[i]
-        top_k = set()
-        if not all(element == 0 for element in high_level_index.vector):
-            top_k.update(await vector_db_handler.get_index(high_level_index))
-        if not all(element == 0 for element in low_level_index.vector):
-            top_k.update(await vector_db_handler.get_index(low_level_index))
-        for index in top_k:
-            node = Node(label="Entity", properties=index.properties)
-            if is_entity_duplicate(node.properties, nodes[i].properties):
-                tasks.append(
-                    asyncio.create_task(
-                        graph_db_handler.insert_edge(
-                            nodes[i], node, Edge(label="SIMILAR")
-                        )
-                    )
-                )
+
