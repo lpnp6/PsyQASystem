@@ -1,6 +1,11 @@
 from rag.base import GraphDatabaseHandler
 from rag.embedding import Embedding_model
+from rag.data import Node
 import asyncio
+
+
+def cal_similarity(query: str, answer):
+    pass
 
 
 async def extract_subject_predicate(
@@ -31,12 +36,30 @@ async def extract_subject_predicate(
 
 
 async def retrieve(
-    query: str, embedding: Embedding_model, gragh_db_handler: GraphDatabaseHandler
+    query: str, embedding: Embedding_model, gragh_db_handler: GraphDatabaseHandler, threshold = 0.95
 ):
     subject_span, predicate_span = await extract_subject_predicate(
         embedding=embedding, text=query
     )
-    
-if __name__ == "__main__":
-    print(asyncio
-          .run(extract_subject_predicate("伊安·麦克德摩写了哪本书")))
+
+    subject_embedding = await embedding.get_embeddings(subject_span)
+    node = Node(label="Entity", properties={"name": subject_embedding})
+    ans = []
+    if all(element == 0 for element in subject_embedding):
+        results = await gragh_db_handler.keyword_search(node=node)
+        for result in results:
+            subject = result[0]
+            predicate = result[1]
+            object = result[2]
+            
+            if cal_similarity(predicate.properties.get("name"), predicate_span) >= threshold:
+                ans.append([subject, predicate, object])
+    else:
+        results = await gragh_db_handler.semantic_search(node=node)
+        for result in results:
+            subject = result[0]
+            predicate = result[1]
+            object = result[2]
+            
+            if cal_similarity(subject.properties.get("name") + predicate.properties.get("name"), subject_span + predicate_span) >= threshold:
+                ans.append([subject, predicate, object]) 

@@ -22,9 +22,20 @@ class GraphDatabaseHandler(Handler):
 
     async def insert_edge(self, node1: Node, node2: Node, edge: Edge):
         raise NotImplementedError
-    
-    async def merge(self, node:Node):
+
+    async def merge(self, node: Node):
         raise NotImplementedError
+
+    async def semantic_search(
+        self, node: Node, top_k: int, max_retries=3
+    ) -> tuple[Node, Edge, Node]:
+        raise NotImplementedError
+
+    async def keyword_search(
+        self, node: Node, max_retries=3
+    ) -> tuple[Node, Edge, Node]:
+        raise NotImplementedError
+
 
 @dataclass
 class BaseLLM:
@@ -36,4 +47,3 @@ class BaseLLM:
 
     async def agenerate(self, prompt: str, **kwargs) -> AsyncGenerator[str, None]:
         raise NotImplementedError
-
