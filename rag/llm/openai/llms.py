@@ -60,14 +60,6 @@ class Ark(OpenaiBase):
         )
 
 
-@dataclass
-class Openai4oMini(OpenaiBase):
-    def __init__(self, model_name=None, config=None):
-        super().__init__(
-            model_name="gpt-4o-mini",
-            config=config,
-            base_url=None,
-            api_key="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",
-        )
+
 
 
